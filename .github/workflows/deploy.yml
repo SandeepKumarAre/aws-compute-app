@@ -28,6 +28,4 @@ jobs:
       - name: Run Flask app
         run: |
           nohup python app.py > app.log 2>&1 &
-      - name: Upload app log to S3
-        run: |
-          aws s3 cp app.log s3://sagemaker-sare/logs/app.log
+
