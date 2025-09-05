@@ -7,15 +7,23 @@ on:
 jobs:
   build-and-run:
     runs-on: self-hosted
+    
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
+
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
+
+      - name: Use system Python 3.9
+        run: |
+          sudo alternatives --install /usr/bin/python python /usr/bin/python3.9 1
+          python --version
 
       - name: Install dependencies
         run: |
